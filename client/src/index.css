@@ -6,8 +6,9 @@ body {
 }
 
 .app {
-    border-top: 3px solid green;
-    border-bottom: 3px solid gray;
+    margin: 1%;
+    border-top: 5px solid green;
+    border-bottom: 5px solid gray;
 }
 
 
@@ -46,9 +47,28 @@ body {
     border-radius: 5px;
 }
 
+.listItem-2 {
+    list-style-type: none;
+}
+
+.listItem-2:hover {
+    list-style-type: disc;
+    color: red;
+}
+
+.listItem-2 a{
+    color: green;
+    text-decoration: none;
+}
+
+.listItem-2 a:hover {
+    color: grey;
+}
+
 .logo a{
     text-decoration: none;
     color: red;
+    font-size: xx-large;
 }
 
 .nav-header-1{

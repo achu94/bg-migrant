@@ -16,17 +16,17 @@ function App() {
           </form>
 
           <ul >
-            <li className=""><a href="#">Вход</a></li>
-            <li className=""><a href="#">Регистрация</a></li>
+            <li className="listItem-2"><a href="#">Регистрация</a></li>
+            <li className="listItem-2"><a href="#">Вход</a></li>
           </ul>
 
         </div>
         <ul>
-          <li className="listItem"><a href="#">Документи</a></li>
+          <li className="listItem"><a href="#">Фoruм</a></li>
           <li className="listItem"><a href="#">Новини</a></li>
           <li className="listItem"><a href="#">Работа</a></li>
-          <li className="listItem"><a href="#">Aпартамент</a></li>
-          <li className="listItem"><a href="#">Български в Германия</a></li>
+          <li className="listItem"><a href="#">Kвиртира</a></li>
+          <li className="listItem"><a href="#">Българскo в Германия</a></li>
         </ul>
       </nav>
     </div>
