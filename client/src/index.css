@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-.navigation {
-    display: block;
-    width: 100%;
-    height: 50px;
+.app {
     border-top: 3px solid green;
     border-bottom: 3px solid gray;
+}
+
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -40,4 +49,29 @@
 .logo a{
     text-decoration: none;
     color: red;
+}
+
+.nav-header-1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.nav-header-1 ul {
+    display: contents;
+    text-decoration: none;
+}
+
+.search-bar {
+    font-size: 14px;
+    border: 1px solid #81C14B;
+    border-radius: 5px 0 0 5px;
+    height: 29px;
+    line-height: 29px;
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
 }
