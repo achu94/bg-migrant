@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './Navbar.css';
 
@@ -24,17 +24,17 @@ class Navbar extends Component {
                     </form>
 
                     <ul >
-                        <li className="listItem-2"><Link to="/register">Регистрация</Link></li>
-                        <li className="listItem-2"><Link to="/login">Вход</Link></li>
+                        <li className="listItem-2"><NavLink to="/register">Регистрация</NavLink></li>
+                        <li className="listItem-2"><NavLink to="/login">Вход</NavLink></li>
                     </ul>
 
                 </div>
                 <ul>
-                    <li className="listItem"><Link to="/forum">Фoruм</Link></li>
-                    <li className="listItem"><Link to="/news">Новини</Link></li>
-                    <li className="listItem"><Link to="/work">Работа</Link></li>
-                    <li className="listItem"><Link to="/flat">Kвиртира</Link></li>
-                    <li className="listItem"><Link to="/specpage">Българскo в Германия</Link></li>
+                    <li className="listItem"><NavLink activeClassName="listItem_active" to="/forum">Фoruм</NavLink></li>
+                    <li className="listItem"><NavLink activeClassName="listItem_active" to="/news/bg">Новини</NavLink></li>
+                    <li className="listItem"><NavLink activeClassName="listItem_active" to="/work">Работа</NavLink></li>
+                    <li className="listItem"><NavLink activeClassName="listItem_active" to="/flat">Kвиртира</NavLink></li>
+                    <li className="listItem"><NavLink activeClassName="listItem_active" to="/specpage">Българскo в Германия</NavLink></li>
                 </ul>
             </nav>
         )
