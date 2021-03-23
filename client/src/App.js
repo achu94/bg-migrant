@@ -25,6 +25,7 @@ function App() {
         <Route path="/work" component={Work} />
         <Route path="/flat" component={Flat} />
         <Route path="/specpage" component={Specpage} />
+        <Route component={() => <h1> Error Page!</h1>} />
       </Switch>
     </div>
   );
