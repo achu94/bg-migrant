@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Navbar.css';
 
@@ -23,17 +24,17 @@ class Navbar extends Component {
                     </form>
 
                     <ul >
-                        <li className="listItem-2"><a href="/register">Регистрация</a></li>
-                        <li className="listItem-2"><a href="/login">Вход</a></li>
+                        <li className="listItem-2"><Link to="/register">Регистрация</Link></li>
+                        <li className="listItem-2"><Link to="/login">Вход</Link></li>
                     </ul>
 
                 </div>
                 <ul>
-                    <li className="listItem"><a href="/forum">Фoruм</a></li>
-                    <li className="listItem"><a href="/news">Новини</a></li>
-                    <li className="listItem"><a href="/work">Работа</a></li>
-                    <li className="listItem"><a href="/flat">Kвиртира</a></li>
-                    <li className="listItem"><a href="/specpage">Българскo в Германия</a></li>
+                    <li className="listItem"><Link to="/forum">Фoruм</Link></li>
+                    <li className="listItem"><Link to="/news">Новини</Link></li>
+                    <li className="listItem"><Link to="/work">Работа</Link></li>
+                    <li className="listItem"><Link to="/flat">Kвиртира</Link></li>
+                    <li className="listItem"><Link to="/specpage">Българскo в Германия</Link></li>
                 </ul>
             </nav>
         )
