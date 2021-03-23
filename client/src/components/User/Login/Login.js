@@ -1,8 +1,8 @@
-import './Login.css';
-
 const Login = () => {
     return(
-        <li className="listItem-2"><a href="#">Вход</a></li>
+        <h1>
+            Login Page
+        </h1>
     );
 }
 
