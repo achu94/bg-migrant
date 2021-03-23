@@ -21,7 +21,7 @@ function App() {
         <Route path="/register" component={Register} />
 
         <Route path="/forum" component={Forum} />
-        <Route path="/news" component={News} />
+        <Route path="/news/:country" component={News} />
         <Route path="/work" component={Work} />
         <Route path="/flat" component={Flat} />
         <Route path="/specpage" component={Specpage} />
