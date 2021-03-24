@@ -1,0 +1,9 @@
+.article {
+    background-color: lightgrey;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.article img {
+    width: 50%;
+}
