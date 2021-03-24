@@ -6,7 +6,7 @@ async function getAll() {
         language: 'bg',
         country : 'bg'
     })
-    console.log(news_data)
+    
     return news_data;
 }
 
