@@ -1,9 +1,13 @@
 .article {
     background-color: lightgrey;
-    width: 600px;
+    width: 70%;
     margin: 0 auto;
 }
 
 .article img {
     width: 50%;
+}
+
+.article h3 {
+    margin:0;
 }
