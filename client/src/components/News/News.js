@@ -49,7 +49,7 @@ class News extends Component {
                         );
                     })
                 ) : (
-                    <div class="loader"></div>
+                    <div className="loader"></div>
                 )}
             </articles>
         )
