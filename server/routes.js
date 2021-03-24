@@ -1,13 +1,15 @@
-const router = require('express').Router();
+const { Router } = require('express');
 
 const homeController = require('./controllers/homeController');
 const newsApiController = require('./controllers/newsApiController');
 
-router.use('/', homeController);
+const router = Router();
+
+// router.use('/', homeController);
 router.use('/news', newsApiController);
 
-router.get('*' (req, res) => {
+// router.get('*' (req, res) => {
 
-});
+// });
 
 module.exports = router;
