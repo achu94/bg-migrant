@@ -27,7 +27,7 @@ const Register = () => {
 
     return(
         <div className="main">
-            <form onSubmit={onSubmitRegisterHandler}  className="register-form" >
+            <form onSubmit={onSubmitRegisterHandler}  className="user-form" >
                 <label htmlFor="username">Потребителско име</label>
                 <input type="text" id="username" name="username" />
 
@@ -40,7 +40,7 @@ const Register = () => {
                 <label htmlFor="register-email">Електронна поща</label>
                 <input type="email" id="register-email" name="register-email" placeholder={email} onChange={onEmailChangeHandler} />
 
-                <input type="submit" className="register-send" value="изпрати" />
+                <input type="submit" className="user-send" value="изпрати" />
             </form>
         </div>
     );

@@ -33,3 +33,29 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  
+  .user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .user-form * {
+    padding: 0.3rem;
+  }
+
+  .user-form input {
+    border: 2px solid rgba(129, 193, 75, 0.9);;
+  }
+
+  .user-form label {
+    color: rgb(94, 95, 94);
+  }
+
+  .user-send {
+    margin: 1rem;
+    padding: 0.3rem;
+    background-color: rgba(129, 193, 75, 0.9);
+  }
