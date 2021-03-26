@@ -6,8 +6,9 @@
     width: 100%;
     height: auto;
     font-family: 'Roboto Condensed', sans-serif;
-    border-top: 5px solid green;
-    border-bottom: 5px solid gray;
+    border-top: 5px solid rgba(129, 193, 75, 0.9);
+    border-bottom: 5px solid #b5b5b5;
+    padding: 1rem;
 }
 
 .navigation ul {
