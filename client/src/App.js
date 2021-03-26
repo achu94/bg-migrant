@@ -10,6 +10,7 @@ import News from "./components/News";
 import Work from "./components/Work";
 import Flat from "./components/Flat";
 import Specpage from "./components/Specpage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/specpage" component={Specpage} />
         <Route component={() => <h1> Error Page!</h1>} />
       </Switch>
+      <Footer />
     </div>
   );
 }
