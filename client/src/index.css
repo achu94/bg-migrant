@@ -57,5 +57,10 @@ body {
   .user-send {
     margin: 1rem;
     padding: 0.3rem;
+    background-color: rgba(129, 193, 75, 0.5);
+    cursor: pointer;
+  }
+
+  .user-send:hover {
     background-color: rgba(129, 193, 75, 0.9);
   }
