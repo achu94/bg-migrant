@@ -1,5 +1,4 @@
 import { Redirect } from 'react-router-dom';
-import Login from '../../Login/Login';
 
 const Post = (userData) => {
 
