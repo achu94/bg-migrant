@@ -1,5 +1,3 @@
-import { Redirect } from 'react-router-dom';
-
 const Post = (userData) => {
 
     // Simple POST request with a JSON body using fetch
