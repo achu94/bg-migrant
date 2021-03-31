@@ -34,6 +34,7 @@ const Register = () => {
         }
 
         hideWarning(setUserNameErrorMessage);
+        return false;
     }
 
     const passwordValidate = (password) => {
@@ -43,6 +44,7 @@ const Register = () => {
         }
 
         hideWarning(setPasswordErrorMessage);
+        return false;
     }
 
     const passwordRepValidate = (passwordRep) => {
@@ -52,6 +54,7 @@ const Register = () => {
         }
 
         hideWarning(setPasswordRepErrorMessage);
+        return false;
     }
 
     const emailValidate = (email) => {
@@ -62,6 +65,7 @@ const Register = () => {
         }
 
         hideWarning(setEmailErrorMessage);
+        return false;
     }
 
     const OnBLurErrorHandle = (e) => {
@@ -121,22 +125,17 @@ const Register = () => {
         validate.repaePassword = passwordRepValidate(userData.repaePassword);
         validate.eMail = emailValidate(userData.eMail);
 
-        // validate.forEach( (userParameter) => {
-        //     console.log(userParameter);
-        //     if(userParameter){
-        //         setValidation(true);
-        //     }
-        // })
-
+        let falseCounter = 0;
         Object.values(validate).map(function(value) {
-            if(!value && value !== undefined){
-                setValidation(false);
+            if(!value){
+                falseCounter++;
             }
         });
 
-        if (!validate) {
+        if (falseCounter > 3) {
+            setValidation(false);
             Post(userData);
-        }
+        }        
     }
 
     const onEmailChangeHandler = (e) => {
