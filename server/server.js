@@ -15,8 +15,9 @@ app.use(express.urlencoded({
 
 require('./config/mongoose');
 
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(routes);
+
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}...`));
 //TODO below..

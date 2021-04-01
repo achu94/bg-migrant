@@ -1,10 +1,15 @@
 import '../Register/Register.css';
+import { loginService } from '../Services/user';
 
 const onSubmitLoginHandler = (e) => {
     e.preventDefault();
 
-    console.log(e.target.username.value);
-    console.log(e.target.password.value);
+    const UserData = {
+        username: e.target.username.value,
+        password: e.target.password.value
+    };
+
+    loginService(UserData);
 }
 
 const Login = () => {

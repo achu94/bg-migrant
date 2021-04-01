@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Post } from './Services/registerPost';
+import { registerService } from '../Services/user';
 
 import './Register.css';
 
@@ -134,7 +134,7 @@ const Register = () => {
 
         if (falseCounter > 3) {
             setValidation(false);
-            Post(userData);
+            registerService(userData);
         }        
     }
 
