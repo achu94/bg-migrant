@@ -1,9 +1,15 @@
 import './Footer.css';
 
-const Footer = () => (
-    <div className="footer">
-      <p style={{float: 'right'}} >&copy; 2021 bg-migrant.info</p>
+const Footer = () => {
+
+  return(
+    <div className="main">
+      <div className="footer">
+        <p style={{float: 'right'}} >&copy; 2021 bg-migrant.info</p>
+      </div>
+
     </div>
-  );
+  )
+};
   
   export default Footer;
