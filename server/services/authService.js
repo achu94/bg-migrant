@@ -19,6 +19,12 @@ const login = async (username, password) => {
 const register = (username, password, eMail) => {
     let user = new User({username, password, eMail});
     
+    let user = await User.findOne({username});
+    if(user) throw {message: 'username wird benutzt', status: 404};
+
+    let email = await User.findOne({eMail});
+    if(email) throw {message: 'email wird benutzt', status: 404};
+
     return user.save();
 }
 

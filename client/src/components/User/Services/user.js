@@ -29,6 +29,9 @@ const registerService = (userData) => {
         .then(res => res.text())
         .then( (res) => {
             return window.location.href = '/login';            
+        })
+        .catch(function(error) {
+            console.log('Looks like there was a problem: \n', error);
         });
 }
 

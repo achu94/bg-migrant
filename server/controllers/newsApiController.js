@@ -5,7 +5,7 @@ const newsService = require('../services/newsService');
 
 const router = Router();
 
-router.get('/', cors(),(req, res) => {
+router.get('/', (req, res) => {
     newsService.getAll()
         .then(newsData => {
             res.json(newsData.articles);
