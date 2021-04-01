@@ -1,12 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-// import '../Register/Register.css';
 import '../Login/Login.css';
 import * as userServices from '../Services/user';
+import * as isAuthServices from '../../../services/isAuthService';
 
 const Login = ({
     history,
 }) => {
+
+    const [isLogged, setIsLogged] = useState(false);
+
+    useEffect(() => {
+        isAuthServices.isAuth()
+            .then( (res) => {
+                if(res.error){
+                    alert('Cannot get cookie.')
+                }else {
+                    setIsLogged(res.isAuth);
+                }
+            })
+    }, [isAuthServices]);
+
+    if(isLogged) history.push('/profil');
 
     const [userNameErrorMessage, setUserNameErrorMessage] = useState('');
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
@@ -41,10 +56,10 @@ const Login = ({
                 }
                 else {
                     history.push('/');
+                    window.location.href = '/';
                 }     
             })
     }
-
     return(
         <div className="main">
             <form onSubmit={onSubmitLoginHandler}  className="user-form" >
