@@ -9,8 +9,6 @@ export const isAuth = (token) => {
         credentials: 'include'
     };
 
-    console.log('IN')
-
     return fetch('http://localhost:5000/', requestOptions)
         .then( res => res.json())
         .catch(function(error) {

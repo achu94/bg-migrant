@@ -4,6 +4,7 @@ import Navbar from "./components/Header/Navbar";
 
 import Register from "./components/User/Register";
 import Login from "./components/User/Login";
+import Profil from "./components/User/Profil"
 
 import Forum from "./components/Forum";
 import News from "./components/News";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" exact />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/profil" component={Profil} />
 
         <Route path="/forum" component={Forum} />
         <Route path="/news/:country" component={News} />
