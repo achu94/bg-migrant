@@ -25,4 +25,12 @@ router.post('/register', (req, res, next) => {
         .catch(next);
 });
 
+router.get('/logout', (req, res, next) => {
+
+    console.log("IN")
+
+    res.clearCookie(COOKIE_NAME);
+    res.send('logout').status(200);
+});
+
 module.exports = router;

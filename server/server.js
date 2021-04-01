@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
 
 const errorHandler = require('./middleware/errorHandler');
 const {PORT} = require('./config/config');
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use(express.urlencoded({
     extended: true
