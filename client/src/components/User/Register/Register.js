@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { registerService } from '../Services/user';
+import * as userServices from '../Services/user';
 
 import './Register.css';
 
-const Register = () => {
+const Register = ({
+    history,
+}) => {
 
     const [isValid, setValidation] = useState(true);
     const [email, setEmail] = useState('абв@абв.бг');
@@ -18,7 +20,7 @@ const Register = () => {
     const hideWarning = (set_state_func) => {
         setTimeout(() => {
             set_state_func('');
-        }, 500)
+        }, 3000)
     }
 
     const userNameValidate = (username) => {
@@ -132,10 +134,29 @@ const Register = () => {
             }
         });
 
-        if (falseCounter > 3) {
-            setValidation(false);
-            registerService(userData);
-        }        
+        if (falseCounter < 4) {
+            return;            
+        }
+
+        setValidation(false);
+
+        userServices.register(userData)
+            .then((res) => {
+
+                if(res.error){
+                    if(res.error.input === 'username'){
+                        setUserNameErrorMessage(res.error.message);
+                        return;
+                    } 
+                    if(res.error.input === 'eMail'){
+                        setEmailErrorMessage(res.error.message);
+                        return;
+                    }
+                }
+                else {
+                    history.push('/login');
+                }                
+            });
     }
 
     const onEmailChangeHandler = (e) => {

@@ -1,4 +1,4 @@
-const loginService = (userData) => {
+export const login = (userData) => {
 
     // Simple POST request with a JSON body using fetch
     const requestOptions = {
@@ -9,14 +9,14 @@ const loginService = (userData) => {
         credentials: 'include'
     };
 
-    fetch('http://localhost:5000/user/login', requestOptions)
-        .then(res => window.location.href = '/')
+    return fetch('http://localhost:5000/user/login', requestOptions)
+        .then( res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);
         });
 }
 
-const registerService = (userData) => {
+export const register = (userData) => {
 
     // Simple POST request with a JSON body using fetch
     const requestOptions = {
@@ -25,17 +25,9 @@ const registerService = (userData) => {
         body: JSON.stringify(userData)
     };
 
-    fetch('http://localhost:5000/user/register', requestOptions)
-        .then(res => res.text())
-        .then( (res) => {
-            return window.location.href = '/login';            
-        })
+    return fetch('http://localhost:5000/user/register', requestOptions)
+        .then(res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);
         });
-}
-
-export {
-    loginService,
-    registerService
 }
