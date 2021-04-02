@@ -32,7 +32,7 @@ class News extends Component {
     render() {
         const { isLoading, newsData, error } = this.state;
         return (
-            <articles className="main">
+            <div className="main">
                 <h1>Новини от България</h1>
                 {error ? <p>{error.message}</p> : null}
 
@@ -51,7 +51,7 @@ class News extends Component {
                 ) : (
                     <div className="loader"></div>
                 )}
-            </articles>
+            </div>
         )
     }
 }

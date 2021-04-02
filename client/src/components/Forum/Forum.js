@@ -1,6 +1,8 @@
 import './Forum.css';
 
-const Forum = () => {
+const Forum = ({
+    history,
+}) => {
 
     const data = [
         {
@@ -23,11 +25,15 @@ const Forum = () => {
 
     ];
 
+    const newPostHandle = () => {
+        history.push('/posts/new');
+    }
+
     return (
         <div className="main">
             <div className="forum-header">
-                <h1>Alle Fragen</h1>
-                <button>Eine Frage stellen</button>
+                <h1>Най-важни въпроси</h1>
+                <button onClick={newPostHandle} className="forum-btn-new-post">Задай въпрос</button>
             </div>
 
             <ul className="forum-list" >

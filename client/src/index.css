@@ -2,14 +2,19 @@
 body {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.main {
-    text-align: center;
+    overflow: auto;
+    background-color: #eff0f1;
 }
 
 .app {
     margin: 1%;
+}
+
+.main {
+    margin: 1rem;
+    text-align: center;
+    background-color: white;
+    border: 2px solid gray;
 }
 
 .loader {
