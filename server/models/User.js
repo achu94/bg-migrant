@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const {SECRET, SALT_ROUNDS} = require('../config/config');
 
@@ -22,7 +23,11 @@ const userScheme = new mongoose.Schema({
         lowercase: true,
         index : true,
         unique : true,
-    }
+    },
+    posts: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Post' 
+    }]
 });
 
 userScheme.pre('save', function (next) {

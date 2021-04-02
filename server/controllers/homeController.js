@@ -1,7 +1,6 @@
 const { Router } = require('express');
 
 const router = Router();
-// const expenseService = require('../services/expenseService');
 const {SECRET, COOKIE_NAME} = require('../config/config');
 const jwt = require('jsonwebtoken');
 
@@ -27,12 +26,6 @@ router.get('/', (req, res, next) => {
     }
 
     res.send({'user_id': user_id, 'username' : username, 'isAuth' : isAuth});
-
-    // expenseService.getAll(user_id)
-    //     .then(expenses => {
-    //         res.render('home', { expenses });
-    //     })
-    //     .catch(next)
 });
 
 // router.get('/secret-action', isAuth, (req, res) => {
