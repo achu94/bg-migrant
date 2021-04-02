@@ -11,6 +11,9 @@ import Profil from "./components/User/Profil"
 
 import Forum from "./components/Forum";
 import NewPost from "./components/Forum/posts/NewPost";
+import Post from "./components/Forum/posts/Post";
+
+
 import News from "./components/News";
 import Work from "./components/Work";
 import Flat from "./components/Flat";
@@ -44,9 +47,14 @@ function App() {
           {isLogged ? <Redirect to="/profil" /> : <Login />}
         </Route>
 
+
+        <Route path="/register" component={Register} />
+
+        <Route path="/posts/new" exact component={NewPost} />
+        <Route path="/posts/:id" component={Post} />
+
         <Route path="/profil" component={Profil} />
         <Route path="/forum" component={Forum} />
-        <Route path="/posts/new" component={NewPost} />
         <Route path="/news/:country" component={News} />
         <Route path="/work" component={Work} />
         <Route path="/flat" component={Flat} />

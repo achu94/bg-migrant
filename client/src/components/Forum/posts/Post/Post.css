@@ -1,0 +1,13 @@
+.post-title{
+    font-size: xx-large;
+    border-bottom: 2px solid #cec9ae;
+}
+
+.post-body {
+    font-size: large;
+}
+
+.post-author {
+    text-align: right;
+    font-weight: bold;
+}

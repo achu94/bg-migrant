@@ -2,10 +2,29 @@ import React, {useState, useEffect} from 'react';
 
 import '../Login/Login.css';
 import * as userServices from '../Services/user';
+import * as isAuthServices from '../../../services/isAuthService';
 
 const Login = ({
     history,
 }) => {
+
+    const [isLogged, setIsLogged] = useState(false);
+
+    useEffect(() => {
+        isAuthServices.isAuth()
+            .then( (res) => {
+                if(res.error){
+                    alert('Cannot get cookie.')
+                    return;
+                }
+
+                setIsLogged(res.isAuth);
+                console.log(res);
+                // if(isLogged) history.push('/profil');
+            })
+            
+    }, []);
+
 
     const [userNameErrorMessage, setUserNameErrorMessage] = useState('');
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
@@ -45,6 +64,7 @@ const Login = ({
             })
     }
     return(
+
         <div className="main">
             <form onSubmit={onSubmitLoginHandler}  className="user-form" >
                 <label htmlFor="username">Потребителско име</label>

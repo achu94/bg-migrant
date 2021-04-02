@@ -14,29 +14,29 @@ export default function NewPost({
     //! idk why need, copied from documentation.
     const [isLogged, setIsLogged] = useState(false);
     const editorRef = useRef();
-    // useEffect(() => {
-    //     // Get underlining core object here
-    //     // Notice that useEffect is been used because you have to make sure the editor is rendered.
-    //     // console.log(editorRef.current.editor.core);
+    useEffect(() => {
+        // Get underlining core object here
+        // Notice that useEffect is been used because you have to make sure the editor is rendered.
+        // console.log(editorRef.current.editor.core);
 
-    //     isAuthServices.isAuth()
-    //         .then( (res) => {
-    //             if(res.error){
-    //                 alert('Cannot get cookie.')
-    //                 return;
-    //             }
+        // isAuthServices.isAuth()
+        //     .then( (res) => {
+        //         if(res.error){
+        //             alert('Cannot get cookie.')
+        //             return;
+        //         }
                 
-    //             setIsLogged(true);
+        //         setIsLogged(true);
                 
-    //             if(!isLogged) {
-    //                 history.push('/login');
-    //             }
-    //             else {
-    //                 history.push('/posts/new');
-    //             }
+        //         if(!isLogged) {
+        //             history.push('/login');
+        //         }
+        //         else {
+        //             history.push('/posts/new');
+        //         }
                 
-    //         })
-    // }, []);
+        //     })
+    }, []);
     const onSubmitLoginHandler = (e) => {
         e.preventDefault();
     
@@ -46,15 +46,14 @@ export default function NewPost({
             tags: e.target.tags.value
         };
 
-        return;
-        //todo Back-End need to setup.
         postServices.newPost(postData)
             .then((res) => {
                 if(res.error){
                     alert('Some thing went wrong!');
                 }
                 else {
-                    history.push('/posts/' + res.id);
+                    console.log(res);
+                    history.push('/posts/' + res);
                     // window.location.href = '/';
                 }     
             })
