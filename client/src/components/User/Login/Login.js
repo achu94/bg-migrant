@@ -19,8 +19,7 @@ const Login = ({
                 }
 
                 setIsLogged(res.isAuth);
-                console.log(res);
-                // if(isLogged) history.push('/profil');
+                if(isLogged) history.push('/profil');
             })
             
     }, []);

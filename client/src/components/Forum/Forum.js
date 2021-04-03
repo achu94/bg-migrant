@@ -39,9 +39,8 @@ const Forum = ({
                                     <div className="list-item-summary-like" >{` ${post.title ? post.likes : 'LIKES'} Like`}</div>
                                     <div className="list-item-summary-dislike" >{` ${post.title ? post.dislikes : 'TITLE'} Dislike`}</div>
                                 </div> 
-                                
-                                <NavLink to={`/posts/${post._id}`}> <h3 className="forum-list-header" >{` ${post.title ? post.title : 'TITLE'} `}</h3> </NavLink>
-                                <p className="forum-list-user">{` ${post.author ? post.author.username : 'AUTHOR'} `}</p>
+                                    <NavLink to={`/posts/${post._id}`}> <h3 className="forum-list-header" >{` ${post.title ? post.title : 'TITLE'} `}</h3> </NavLink>
+                                    <p className="forum-list-user">{` ${post.author ? post.author.username : 'AUTHOR'} `}</p>
                             </li>
                         )
                     })

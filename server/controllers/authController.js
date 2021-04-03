@@ -26,7 +26,6 @@ router.post('/register', (req, res, next) => {
 });
 
 router.get('/logout', (req, res, next) => {
-    
     res.clearCookie(COOKIE_NAME);
     res.send('logout').status(200);
 });

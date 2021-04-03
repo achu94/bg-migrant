@@ -21,9 +21,15 @@
     margin-bottom: 0.5px;
 }
 
-.forum-list li p {
+.forum-list li a {
     margin-left: auto;
     padding: 1rem;
+    text-decoration: none;
+    color: #0077d1;
+}
+
+.forum-list li a:hover {
+    color: #0060a9;
 }
 
 .list-item-summary {
@@ -53,14 +59,13 @@
     padding: 0.3rem;
 }
 
-.forum-list-short-text {
-    text-align: left;
-    margin: 0px 0px 5px 5px;
-}
-
 .forum-list-user {
     text-align: right;
     margin: 0px 0px 5px 5px;
+    font-weight: bold;
+    margin-top: auto;
+    margin-left: auto;
+    padding: 1rem;
 }
 
 .forum-btn-new-post {
