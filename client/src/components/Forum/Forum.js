@@ -20,27 +20,6 @@ const Forum = ({
             });
     }, []);
 
-    const data = [
-        {
-            "header" : 'Hallo',
-            "shortText" : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet provident vitae ullam illo libero aspernatur corrupti rem maxime ab. Ratione.',
-            "user" : 'achu',
-        },
-        {
-            "header" : 'Malo',
-            "shortText" : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet provident vitae ullam illo libero aspernatur corrupti rem maxime ab. Ratione.'
-        },
-        {
-            "header" : 'Tallo',
-            "shortText" : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet provident vitae ullam illo libero aspernatur corrupti rem maxime ab. Ratione.'
-        },
-        {
-            "header" : 'coco',
-            "shortText" : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet provident vitae ullam illo libero aspernatur corrupti rem maxime ab. Ratione.'
-        },
-
-    ];
-
     const newPostHandle = () => {
         history.push('/posts/new');
     }
