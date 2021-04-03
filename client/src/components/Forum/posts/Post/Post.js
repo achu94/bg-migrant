@@ -28,10 +28,10 @@ const Post = ({ history, match }) => {
   return (
     <div className="main">
       <div style={{margin: '1rem'}} >
-          <div class="post-title">{postData.title}</div>
-          <div class="post-body">{parse(postData.body)}</div>
-          <div class="post-author">{postData.author ? postData.author.username : ''}</div>
-          <div class="post-body">{postData.created_at}</div>
+          <div className="post-title">{postData.title}</div>
+          <div className="post-body">{postData.author ? parse(postData.body): 'asd '}</div>
+          <div className="post-author">{postData.author ? postData.author.username : ''}</div>
+          <div className="post-footer">{postData.created_at ? postData.created_at : ''}</div>
       </div>
     </div>
   );
