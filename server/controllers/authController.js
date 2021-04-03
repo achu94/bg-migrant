@@ -9,7 +9,8 @@ router.post('/login', (req, res, next) => {
 
     authService.login(username, password)
         .then( token => {
-            res.cookie(COOKIE_NAME, token);
+            const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+            res.cookie(COOKIE_NAME, token,{ maxAge: thirtyDays, httpOnly: true });
             res.send({'login' : true}).status(200);
         })
         .catch(next);
