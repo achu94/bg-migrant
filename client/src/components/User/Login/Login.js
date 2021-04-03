@@ -1,32 +1,22 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
+import {Redirect } from "react-router-dom";
+import { IsAuthContext } from '../../../Context/IsAuthContext';
 
 import '../Login/Login.css';
 import * as userServices from '../Services/user';
-import * as isAuthServices from '../../../services/isAuthService';
 
 const Login = ({
     history,
 }) => {
 
-    const [isLogged, setIsLogged] = useState(false);
-
-    useEffect(() => {
-        isAuthServices.isAuth()
-            .then( (res) => {
-                if(res.error){
-                    alert('Cannot get cookie.')
-                    return;
-                }
-
-                setIsLogged(res.isAuth);
-                if(isLogged) history.push('/profil');
-            })
-            
-    }, []);
-
-
     const [userNameErrorMessage, setUserNameErrorMessage] = useState('');
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+
+    let userInfo = useContext(IsAuthContext);
+    // if(userInfo.userData.isAuth) history.push('/profil');
+
+
+    if(userInfo.userData.isAuth) return <Redirect to="/profil" />
 
     const hideWarning = (set_state_func) => {
         setTimeout(() => {
@@ -37,12 +27,12 @@ const Login = ({
     const onSubmitLoginHandler = (e) => {
         e.preventDefault();
     
-        const UserData = {
+        const userInput = {
             username: e.target.username.value,
             password: e.target.password.value
         };
     
-        userServices.login(UserData)
+        userServices.login(userInput)
             .then((res) => {
                 if(res.error){
                     if(res.error.input === 'username'){
@@ -54,16 +44,15 @@ const Login = ({
                         setPasswordErrorMessage(res.error.message);
                         hideWarning(setPasswordErrorMessage);
                         return;
-                    } 
+                    }
                 }
                 else {
-                    history.push('/');
-                    // window.location.href = '/';
+                    userInfo.setUserData(res);
+                    history.go(0);
                 }     
             })
     }
     return(
-
         <div className="main">
             <form onSubmit={onSubmitLoginHandler}  className="user-form" >
                 <label htmlFor="username">Потребителско име</label>

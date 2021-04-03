@@ -23,7 +23,7 @@ const Post = ({ history, match }) => {
 
       setPostData(data);
     });
-  }, []);
+  });
 
   return (
     <div className="main">

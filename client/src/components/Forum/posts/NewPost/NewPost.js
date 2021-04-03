@@ -1,42 +1,19 @@
-import React, {useState, useRef, useEffect } from "react";
+import React, {useContext } from "react";
+import {Redirect} from "react-router-dom";
 import SunEditor from 'suneditor-react';
+import { IsAuthContext } from '../../../../Context/IsAuthContext';
 
 import './NewPost.css';
 import 'suneditor/dist/css/suneditor.min.css'; // Import Sun Editor's CSS File
 
 import * as postServices from '../../postServices';
-import * as isAuthServices from '../../../../services/isAuthService';
 
 export default function NewPost({
     history,
 }) {
 
-    //! idk why need, copied from documentation.
-    const [isLogged, setIsLogged] = useState(false);
-    const editorRef = useRef();
-    useEffect(() => {
-        // Get underlining core object here
-        // Notice that useEffect is been used because you have to make sure the editor is rendered.
-        // console.log(editorRef.current.editor.core);
+    let userInfo = useContext(IsAuthContext);
 
-        // isAuthServices.isAuth()
-        //     .then( (res) => {
-        //         if(res.error){
-        //             alert('Cannot get cookie.')
-        //             return;
-        //         }
-                
-        //         setIsLogged(true);
-                
-        //         if(!isLogged) {
-        //             history.push('/login');
-        //         }
-        //         else {
-        //             history.push('/posts/new');
-        //         }
-                
-        //     })
-    }, []);
     const onSubmitLoginHandler = (e) => {
         e.preventDefault();
     
@@ -52,12 +29,13 @@ export default function NewPost({
                     alert('Some thing went wrong!');
                 }
                 else {
-                    console.log(res);
-                    history.push('/posts/' + res);
-                    // window.location.href = '/';
+                    // history.push('/posts/' + res);
+                    window.location.href = '/posts/' + res;
                 }     
             })
     }
+    console.log(userInfo.userData.isAuth)
+    if(!userInfo.userData.isAuth) return <Redirect to="/login" />
 
     return (
         <div className="main">
@@ -77,7 +55,7 @@ export default function NewPost({
                     </div>
 
                     <div className="posts-text-editor">
-                        <SunEditor name="body" ref={editorRef} height="100"/>
+                        <SunEditor name="body" height="100"/>
                     </div>
                 </div>
 

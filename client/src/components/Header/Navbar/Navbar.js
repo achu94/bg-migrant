@@ -1,36 +1,14 @@
 import { Component } from 'react';
 import {NavLink } from 'react-router-dom';
+import { IsAuthContext } from '../../../Context/IsAuthContext';
 
-import * as isAuthService from '../../../services/isAuthService';
 import * as userServices from '../../User/Services/user';
 
 import './Navbar.css';
 
 class Navbar extends Component {
-    constructor(props) {
-        super(props)
 
-        this.state = {
-            isAuth : false,
-            username : '',
-            userId : ''
-        }
-    }
-
-    componentDidMount() {
-        isAuthService.isAuth()
-        .then((res) => {
-            if(res.error){
-                alert('Cannot get cookie.')
-            } else {
-                this.setState( {
-                    isAuth : res.isAuth,
-                    username: res.username,
-                    userId: res.user_id
-                })
-            }     
-        })
-    }
+    static contextType = IsAuthContext;
 
     onLogoutHandler(){
         userServices.logout()
@@ -61,17 +39,17 @@ class Navbar extends Component {
                     <ul>
                         <li className="listItem-2">
                             <NavLink
-                                to={`${this.state.isAuth ? '/profil' : '/register'}`}
+                                to={`${this.context.userData.isAuth ? '/profil' : '/register'}`}
                             >
-                                {`${this.state.isAuth ? `Профил, (${this.state.username})`: 'Регистрация'}`}
+                                {`${this.context.userData.isAuth ? `Профил, (${this.context.userData.username})`: 'Регистрация'}`}
                             </NavLink>
                         </li>
                         <li className="listItem-2">
                             <a
                                 onClick={this.onLogoutHandler} 
-                                href={`${this.state.isAuth ? '/' : '/login'}`}
+                                href={`${this.context.userData.isAuth ? '/' : '/login'}`}
                             > 
-                                {`${this.state.isAuth ? 'Изход' : 'Вход'}`}
+                                {`${this.context.userData.isAuth ? 'Изход' : 'Вход'}`}
                             </a>
                         </li>
                     </ul>

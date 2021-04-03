@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
-import { Route, Link, NavLink, Redirect, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import { IsAuthContext } from './Context/IsAuthContext';
 
 import * as isAuthServices from './services/isAuthService';
 
@@ -22,7 +23,11 @@ import Footer from "./components/Footer";
 
 function App() {
 
-  const [isLogged, setIsLogged] = useState(false);
+  const [userData, setUserData] = useState({
+    isAuth : false,
+    user_id : '',
+    username : '',
+  });
 
     useEffect(() => {
         isAuthServices.isAuth()
@@ -31,36 +36,37 @@ function App() {
                     alert('Cannot get cookie.')
                     return;
                 }
-                setIsLogged(res.isAuth);
+
+                setUserData(res);
             })
             
     }, []);
 
   return (
+    
+
     <div className="app">
-      <Navbar />
-      <Switch>
-        <Route path="/" exact />
+        
+          <IsAuthContext.Provider value={{userData, setUserData}}>
+            <Navbar />
+            <Switch>
+              <Route path="/" exact />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+              <Route path="/profil" component={Profil} />
 
+              <Route path="/posts/new" exact component={NewPost} />
+              <Route path="/posts/:id" component={Post} />
 
-        <Route path="/login" component={Login} >
-          {isLogged ? <Redirect to="/profil" /> : <Login />}
-        </Route>
+              <Route path="/forum" component={Forum} />
+              <Route path="/news/:country" component={News} />
+              <Route path="/work" component={Work} />
+              <Route path="/flat" component={Flat} />
+              <Route path="/specpage" component={Specpage} />
+              <Route component={() => <h1> Error Page!</h1>} />
+            </Switch>
+          </IsAuthContext.Provider>
 
-
-        <Route path="/register" component={Register} />
-
-        <Route path="/posts/new" exact component={NewPost} />
-        <Route path="/posts/:id" component={Post} />
-
-        <Route path="/profil" component={Profil} />
-        <Route path="/forum" component={Forum} />
-        <Route path="/news/:country" component={News} />
-        <Route path="/work" component={Work} />
-        <Route path="/flat" component={Flat} />
-        <Route path="/specpage" component={Specpage} />
-        <Route component={() => <h1> Error Page!</h1>} />
-      </Switch>
       <Footer />
     </div>
   );

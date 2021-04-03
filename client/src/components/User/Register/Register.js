@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import {Redirect } from "react-router-dom";
+import { IsAuthContext } from '../../../Context/IsAuthContext';
+
 import * as userServices from '../Services/user';
 
 import './Register.css';
@@ -16,6 +19,9 @@ const Register = ({
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
     const [passwordRepErrorMessage, setPasswordRepErrorMessage] = useState('');
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
+
+    const userInfo = useContext(IsAuthContext);
+    if(userInfo.userData.isAuth) return <Redirect to="/profil" />
 
     const hideWarning = (set_state_func) => {
         setTimeout(() => {
@@ -50,7 +56,7 @@ const Register = ({
     }
 
     const passwordRepValidate = (passwordRep) => {
-        if (passwordRep != password) {
+        if (passwordRep !== password) {
             setPasswordRepErrorMessage('Паролите не съвпадат');
             return true;
         }
@@ -128,7 +134,7 @@ const Register = ({
         validate.eMail = emailValidate(userData.eMail);
 
         let falseCounter = 0;
-        Object.values(validate).map(function(value) {
+        Object.values(validate).forEach(function (value) {
             if(!value){
                 falseCounter++;
             }
