@@ -7,6 +7,9 @@
 
 .forum-list {
     list-style-type: none;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem;
 }
 
 .forum-list li {

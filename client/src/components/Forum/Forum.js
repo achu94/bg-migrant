@@ -62,7 +62,7 @@ const Forum = ({
                                 </div> 
                                 
                                 <NavLink to={`/posts/${post._id}`}> <h3 className="forum-list-header" >{` ${post.title ? post.title : 'TITLE'} `}</h3> </NavLink>
-                                <p className="forum-list-user">{` ${post.author ? post.author : 'AUTHOR'} `}</p>
+                                <p className="forum-list-user">{` ${post.author ? post.author.username : 'AUTHOR'} `}</p>
                             </li>
                         )
                     })

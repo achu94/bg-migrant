@@ -12,7 +12,7 @@ const getById = async (postId) => {
 
 const getAll = async () => {
     return Post
-            .find({})
+            .find({}).sort({created_at: 'desc'}).populate('author')
                 .then(posts => {
                     console.log(posts);
                     return posts;
