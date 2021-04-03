@@ -1,8 +1,24 @@
+import {useState, useEffect} from 'react';
+import {NavLink } from 'react-router-dom';
+import parse from "html-react-parser";
+
 import './Forum.css';
+import * as postSerivces from './postServices';
 
 const Forum = ({
     history,
 }) => {
+
+    const [postsData, setPosts] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        postSerivces.getAll()
+            .then( (posts) => {
+                setPosts(posts);
+                setIsLoading(false);
+            });
+    }, []);
 
     const data = [
         {
@@ -31,25 +47,28 @@ const Forum = ({
 
     return (
         <div className="main">
+            <ul className="forum-list" >
             <div className="forum-header">
                 <h1>Най-важни въпроси</h1>
                 <button onClick={newPostHandle} className="forum-btn-new-post">Задай въпрос</button>
             </div>
-
-            <ul className="forum-list" >
-                {
-                    data.map( (theme) => {
-                        return( 
-                        <li>
-                            <div className="list-item-photo" ></div> 
-                            <div>
-                                <h3 className="forum-list-header" >{` ${theme.header} `}</h3>
-                                <p className="forum-list-short-text">{` ${theme.shortText} `}</p>
-                                <p className="forum-list-user">{` ${theme.user} `}</p>
-                            </div> 
-                        </li>)
+                {!isLoading ? (
+                    postsData.map( (post) => {
+                        return(
+                            <li key={post._id} >
+                                <div className="list-item-summary" >
+                                    <div className="list-item-summary-like" >{` ${post.title ? post.likes : 'LIKES'} Like`}</div>
+                                    <div className="list-item-summary-dislike" >{` ${post.title ? post.dislikes : 'TITLE'} Dislike`}</div>
+                                </div> 
+                                
+                                <NavLink to={`/posts/${post._id}`}> <h3 className="forum-list-header" >{` ${post.title ? post.title : 'TITLE'} `}</h3> </NavLink>
+                                <p className="forum-list-user">{` ${post.author ? post.author : 'AUTHOR'} `}</p>
+                            </li>
+                        )
                     })
-                }
+                ) : (
+                    <div className="loader"></div>
+                )}
             </ul>
         </div>
     );

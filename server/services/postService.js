@@ -1,8 +1,4 @@
-const User = require('../models/User');
 const Post = require('../models/Post');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { SECRET } = require('../config/config');
 
 const getById = async (postId) => {
     if(!postId) throw {message: 'No Post ID.', status: 404};
@@ -16,11 +12,18 @@ const getById = async (postId) => {
 
 const getAll = async () => {
     return Post
-        .findOne({ title: 'test3' })
-            .populate('User')
-            .then((data) => {
-                return data;
-            })
+            .find({})
+                .then(posts => {
+                    console.log(posts);
+                    return posts;
+                });
+
+
+        // .findOne({ title: 'test3' })
+        //     .populate('User')
+        //     .then((data) => {
+        //         return data;
+        //     })
 
 }
 

@@ -30,3 +30,18 @@ export const getPost = (id) => {
             console.log('Looks like there was a problem: \n', error);
         });
 }
+
+export const getAll = () => {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors',
+        credentials: 'include'
+    };
+
+    return fetch('http://localhost:5000/posts', requestOptions)
+        .then(res => res.json())
+        .catch(function(error) {
+            console.log('Looks like there was a problem: \n', error);
+        });
+}
