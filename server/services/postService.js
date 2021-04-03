@@ -4,7 +4,7 @@ const getById = async (postId) => {
     if(!postId) throw {message: 'No Post ID.', status: 404};
 
     return Post
-        .findOne({_id: postId})
+        .findOne({_id: postId}).populate({ path: 'author', select: 'username' })
             .then(post => {
                 return post;
             });
@@ -12,19 +12,10 @@ const getById = async (postId) => {
 
 const getAll = async () => {
     return Post
-            .find({}).sort({created_at: 'desc'}).populate('author')
+            .find({}).sort({created_at: 'desc'}).populate({ path: 'author', select: 'username'})
                 .then(posts => {
-                    console.log(posts);
                     return posts;
                 });
-
-
-        // .findOne({ title: 'test3' })
-        //     .populate('User')
-        //     .then((data) => {
-        //         return data;
-        //     })
-
 }
 
 const create = async (title, body, tags, author) => {

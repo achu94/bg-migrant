@@ -11,6 +11,10 @@ const Post = ({ history, match }) => {
     title: "",
     body: "",
     tags: "",
+    author : {
+        _id: '',
+        username : ''
+    }
   });
 
   useEffect(() => {
