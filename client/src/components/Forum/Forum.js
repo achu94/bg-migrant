@@ -20,7 +20,7 @@ const Forum = ({
     }, []);
 
     const newPostHandle = () => {
-        history.push('/posts/new');
+        window.location.href = '/posts/new';
     }
 
     return (
