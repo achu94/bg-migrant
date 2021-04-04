@@ -16,8 +16,8 @@ const Work = () => {
 
     return(
         <div className="main" >
-            <h1>Demo Form</h1>
-            <form onSubmit={onLoginSubmitHandler} >
+            <h1>Очаквайте скоро</h1>
+            {/* <form onSubmit={onLoginSubmitHandler} >
                 <label htmlFor="username">Username</label>
                 <input onChange={onUsernameChangeHandler} type="text" id="username" name="name" />
                 <br />
@@ -29,7 +29,7 @@ const Work = () => {
                 <input type="submit" value="Send"/>
                 <br /><br />
                 <button type="button" onClick={onSumitClickHandler}>Click Me</button>
-            </form>
+            </form> */}
         </div>
     );
 }

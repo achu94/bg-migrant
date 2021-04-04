@@ -1,8 +1,10 @@
 const Specpage = () => {
     return(
-        <h1>
-            Specpage Page
-        </h1>
+        <div class="main">
+            <h1>
+                Очаквайте скоро
+            </h1>
+        </div>
     );
 }
 
