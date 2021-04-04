@@ -12,3 +12,50 @@
     text-align: right;
     font-weight: bold;
 }
+
+.post-topic {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-topic * {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.post-topic-textarea {
+    width: 80%;
+    font-size: large;
+    border: 1px solid #b2adad;
+}
+
+.post-topics {
+    text-align: left;
+    padding: 1rem;
+}
+
+.post-topics li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    border-bottom: 1px solid grey;
+    margin-top: 1rem;
+}
+
+.topic-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.topic-user-info span {
+    padding: 0.3rem;
+}
+
+.topic-author {
+    font-weight: bold;
+    color: #318eed;
+}

@@ -33,6 +33,76 @@ const Post = ({ history, match }) => {
           <div className="post-author">{postData.author ? postData.author.username : ''}</div>
           <div className="post-footer">{postData.created_at ? postData.created_at : ''}</div>
       </div>
+      <div className="post-topic">
+        <button className="forum-btn-new-post" >Отговори</button>
+        <textarea className="post-topic-textarea" name="new-topic" id="new-topic" cols="30" rows="10"></textarea>
+      </div>
+      <ul className="post-topics">
+        <h2>Komentari</h2>
+        <li>
+          <div>
+            <div style={{padding: '0.3rem'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, suscipit.</div>
+            <div className="topic-user-info">
+              <span > 2021-04-03 17:33</span>
+              <span className="topic-author" >~ Author</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div style={{padding: '0.3rem'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, suscipit.</div>
+            <div className="topic-user-info">
+              <span > 2021-04-03 17:33</span>
+              <span className="topic-author" >~ Author</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div style={{padding: '0.3rem'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, suscipit.</div>
+            <div className="topic-user-info">
+              <span > 2021-04-03 17:33</span>
+              <span className="topic-author" >~ Author</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div style={{padding: '0.3rem'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, suscipit.</div>
+            <div className="topic-user-info">
+              <span > 2021-04-03 17:33</span>
+              <span className="topic-author" >~ Author</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div style={{padding: '0.3rem'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, suscipit.</div>
+            <div className="topic-user-info">
+              <span > 2021-04-03 17:33</span>
+              <span className="topic-author" >~ Author</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div style={{padding: '0.3rem'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, suscipit.</div>
+            <div className="topic-user-info">
+              <span > 2021-04-03 17:33</span>
+              <span className="topic-author" >~ Author</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div style={{padding: '0.3rem'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, suscipit.</div>
+            <div className="topic-user-info">
+              <span > 2021-04-03 17:33</span>
+              <span className="topic-author" >~ Author</span>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   );
 };
