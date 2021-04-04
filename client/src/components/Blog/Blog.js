@@ -31,12 +31,6 @@ class Blog extends Component {
         e.preventDefault();
 
         const {username, age } = this.state;
-    
-    onSumitClickHandler(e) {
-    }
-
-    onUsernameChangeHandler(e) {
-        this.setState({username: e.target.value})
     }
 
     onChangeHandler(e){
