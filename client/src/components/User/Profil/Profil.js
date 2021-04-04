@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from 'react';
-import {Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import { IsAuthContext } from '../../../Context/IsAuthContext';
 
 import * as userServices from '../Services/user';
@@ -8,7 +8,7 @@ import './Profil.css';
 
 const Profil = ({history}) => {
     const userInfo = useContext(IsAuthContext);
-    if(!userInfo.userData.isAuth) history.push('/login');
+    if(!userInfo.userData.isAuth) window.location.href = '/login';
     
     const [userAllInfo, setUser] = useState();    
     const [isLoading, setIsLoading] = useState(true);   
