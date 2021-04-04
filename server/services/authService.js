@@ -28,7 +28,33 @@ const register = async (username, password, eMail) => {
     return user.save();
 }
 
+const getUserInfo = async (userId) => {
+    if(!userId) throw {message: 'No Post ID.', status: 404};
+
+    return User
+        .findOne({_id: userId})
+            .populate({ 
+                path: 'posts',
+                options: {
+                    sort: 
+                        { created_at: 'desc' }
+                },
+            })
+            .populate({
+                path:'topics',
+                select: ['body', 'created_at'],
+                options: {
+                    sort: 
+                        { created_at: 'desc' }
+                },
+            })
+            .then(user => {
+                return user;
+            });
+}
+
 module.exports = {
     register,
     login,
+    getUserInfo,
 }
