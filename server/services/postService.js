@@ -4,15 +4,31 @@ const getById = async (postId) => {
     if(!postId) throw {message: 'No Post ID.', status: 404};
 
     return Post
-        .findOne({_id: postId}).populate({ path: 'author', select: 'username' })
-            .then(post => {
-                return post;
-            });
+        .findOne({_id: postId})
+        .populate({ 
+            path: 'author',
+            select: 'username' 
+        })
+        .populate({
+            path:'post_topics',
+            select: ['body', 'created_at'],
+            populate : {
+                path: 'author',
+                select: 'username',
+            },
+            options: {
+                sort: 
+                    { created_at: 'desc' }
+            },
+        })
+        .then(post => {
+            return post;
+        });
 }
 
 const getAll = async () => {
     return Post
-            .find({}).sort({created_at: 'desc'}).populate({ path: 'author', select: 'username'})
+            .find({}).sort({created_at: 'desc'}).populate({ path: 'author', select: 'username'}).populate( {path:'post_topics'})
                 .then(posts => {
                     return posts;
                 });
