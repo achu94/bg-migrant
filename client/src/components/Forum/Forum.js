@@ -27,7 +27,7 @@ const Forum = ({
         <div className="main">
             <ul className="forum-list" >
             <div className="forum-header">
-                <h1>Най-важни въпроси</h1>
+                <h1>Най-нови въпроси</h1>
                 <button onClick={newPostHandle} className="forum-btn-new-post">Задай въпрос</button>
             </div>
                 {!isLoading ? (
@@ -35,7 +35,8 @@ const Forum = ({
                         return(
                             <li key={post._id} >
                                 <NavLink to={`/posts/${post._id}`}> <h3 className="forum-list-header" >{` ${post.title ? post.title : 'TITLE'} `}</h3> </NavLink>
-                                <p className="forum-list-user">{` ${post.author ? post.author.username : 'AUTHOR'} `}</p>
+                                <span className="forum-list-time">{` ${post.created_at ? post.created_at : 'TIME'} `}</span>
+                                <span className="forum-list-user">{` ${post.author ? post.author.username : 'AUTHOR'} `}</span>
                             </li>
                         )
                     })
