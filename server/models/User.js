@@ -27,7 +27,11 @@ const userScheme = new mongoose.Schema({
     posts: [{
         type: Schema.Types.ObjectId,
         ref: 'Post' 
-    }]
+    }],
+    topics: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Topic'
+    }],
 });
 
 userScheme.pre('save', function (next) {

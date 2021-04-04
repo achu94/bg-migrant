@@ -1,24 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require('./User');
+const Post = require('./Post');
 
-const postScheme = new mongoose.Schema({
-    title : {
-        type: String,
-        require : true,
-        trim: true,
-        index : true,
-    },
+const topicScheme = new mongoose.Schema({
     body : {
         type: String,
         required : true,
         trim: true,
     },
-    tags : {
-        type: String,
-        trim: true,
-        lowercase: true,
-        index : true,
+    post : {
+        type: Schema.Types.ObjectId,
+        ref: 'Post',
     },
     author : {
         type: Schema.Types.ObjectId,
@@ -39,21 +32,25 @@ const postScheme = new mongoose.Schema({
     dislikes: {
         type: Number,
         default: 0,
-    },
-    post_topics: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Topic',
-    }],
+    }
 });
 
-postScheme.post('save', function (post, next) {
+topicScheme.post('save', function (topic, next) {
     User.update(
         { "_id" : this.author},
         {$push: {
-            "posts" : post._id
+            "topics" : topic._id
         }}
-    )
-    .then( () => next())
+    ).then( () => {
+        Post.update(
+            { "_id" : this.post},
+            {$push: {
+                "post_topics" : topic._id
+            }}
+        ).then( () => next());    
+    })
+
+    next();    
 });
 
-module.exports = mongoose.model('Post', postScheme);
+module.exports = mongoose.model('Topic', topicScheme);
