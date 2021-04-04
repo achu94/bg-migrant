@@ -48,3 +48,19 @@ export const logout = () => {
             console.log('Looks like there was a problem: \n', error);
         });
 }
+
+export const getUserInfo = () => {
+    // Simple POST request with a JSON body using fetch
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors',
+        credentials: 'include'
+    };
+
+    return fetch('http://localhost:5000/user/', requestOptions)
+        .then(res => res.json())
+        .catch(function(error) {
+            console.log('Looks like there was a problem: \n', error);
+        });
+}

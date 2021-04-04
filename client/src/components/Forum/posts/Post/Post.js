@@ -27,11 +27,14 @@ const Post = ({ history, match }) => {
 
   const sendTopic = () => {
     if(!newTopic) return alert('Kommetar ist leer.')
+    if(!userInfo.userData.isAuth) return history.push('/login')
+    
 
     setIsLoading(true);
     postServices.newTopic(newTopic, match.params.id).then( (topics, err) => {
       if (err) return;
       topicInput.current.value = '';
+      setNewTopic('');
     })
   }
 
