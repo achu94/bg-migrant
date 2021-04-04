@@ -18,10 +18,7 @@ export const newPost = (postData) => {
 export const getPost = (id) => {
     const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(),
-        mode: 'cors',
-        credentials: 'include'
+        headers: { 'Content-Type': 'application/json' }
     };
 
     return fetch('http://localhost:5000/posts/' + id, requestOptions)
@@ -45,3 +42,32 @@ export const getAll = () => {
             console.log('Looks like there was a problem: \n', error);
         });
 }
+
+export const newTopic = (body, postId) => {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+        mode: 'cors',
+        credentials: 'include'
+    };
+
+    return fetch(`http://localhost:5000/posts/${postId}/newtopic`, requestOptions)
+        .then(res => res.json())
+        .catch(function(error) {
+            console.log('Looks like there was a problem: \n', error);
+        });
+}
+
+// export const getTopics = (postId) => {
+//     const requestOptions = {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' }
+//     };
+
+//     return fetch(`http://localhost:5000/posts/${postId}/getTopics`, requestOptions)
+//         .then(res => res.json())
+//         .catch(function(error) {
+//             console.log('Looks like there was a problem: \n', error);
+//         });
+// }
