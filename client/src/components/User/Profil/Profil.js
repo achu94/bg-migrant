@@ -6,12 +6,12 @@ import * as userServices from '../Services/user';
 
 import './Profil.css';
 
-const Profil = (props) => {
-    const [userAllInfo, setUser] = useState();
+const Profil = ({history}) => {
     const userInfo = useContext(IsAuthContext);
-    const [isLoading, setIsLoading] = useState(true);
+    if(!userInfo.userData.isAuth) history.push('/login');
     
-    
+    const [userAllInfo, setUser] = useState();    
+    const [isLoading, setIsLoading] = useState(true);   
     
     useEffect(() => {
         userServices.getUserInfo()
@@ -20,9 +20,8 @@ const Profil = (props) => {
             setIsLoading(false);
             console.log(user);
         })
-    }, [userInfo]);
-    // if(!userInfo.userData.isAuth) return history.push('/login')>
-
+    }, [isLoading]);
+    
     return(
         <div className="main">
             {userAllInfo && !isLoading ? (
