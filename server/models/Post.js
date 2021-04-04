@@ -41,4 +41,14 @@ const postScheme = new mongoose.Schema({
     }
 });
 
+postScheme.post('save', function (post, next) {
+    user.update(
+        { "_id" : this.author},
+        {$push: {
+            "posts" : post._id
+        }}
+    )
+    .then( () => next())
+});
+
 module.exports = mongoose.model('Post', postScheme);
