@@ -29,12 +29,10 @@ export default function NewPost({
                     alert('Some thing went wrong!');
                 }
                 else {
-                    // history.push('/posts/' + res);
                     window.location.href = '/posts/' + res;
                 }     
             })
     }
-    console.log(userInfo.userData.isAuth)
     if(!userInfo.userData.isAuth) return <Redirect to="/login" />
 
     return (

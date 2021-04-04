@@ -2,7 +2,6 @@ const Work = () => {
 
     const onLoginSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(e.target.username.value);
         console.log(e.target.age.value);
     }
     

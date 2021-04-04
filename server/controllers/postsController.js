@@ -32,7 +32,6 @@ router.post('/new', (req, res, next) => {
 
     postService.create(title, body, tags, userId)
         .then(post => {
-            console.log(post);
             res.send(post._id);
         })
         .catch(next);

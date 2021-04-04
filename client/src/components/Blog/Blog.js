@@ -25,25 +25,17 @@ class Blog extends Component {
 
     onLoginSubmitHandler(e) {
         e.preventDefault();
-        console.log(e.target.username.value);
-        console.log(e.target.age.value);
     }
 
     onLoginSubmitControlled(e) {
         e.preventDefault();
 
         const {username, age } = this.state;
-
-        console.log(username);
-        console.log(age);
-    }
     
     onSumitClickHandler(e) {
-        console.log(e.target.parentNode.username.value);
     }
 
     onUsernameChangeHandler(e) {
-        console.log(e.target.value);
         this.setState({username: e.target.value})
     }
 

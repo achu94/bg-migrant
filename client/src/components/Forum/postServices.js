@@ -58,16 +58,3 @@ export const newTopic = (body, postId) => {
             console.log('Looks like there was a problem: \n', error);
         });
 }
-
-// export const getTopics = (postId) => {
-//     const requestOptions = {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' }
-//     };
-
-//     return fetch(`http://localhost:5000/posts/${postId}/getTopics`, requestOptions)
-//         .then(res => res.json())
-//         .catch(function(error) {
-//             console.log('Looks like there was a problem: \n', error);
-//         });
-// }
