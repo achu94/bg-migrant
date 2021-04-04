@@ -15,6 +15,7 @@ import NewPost from "./components/Forum/posts/NewPost";
 import Post from "./components/Forum/posts/Post";
 
 
+import Main from "./components/Main";
 import News from "./components/News";
 import Work from "./components/Work";
 import Blog from "./components/Blog";
@@ -46,11 +47,10 @@ function App() {
     
 
     <div className="app">
-        
           <IsAuthContext.Provider value={{userData, setUserData}}>
             <Navbar />
             <Switch>
-              <Route path="/" exact />
+              <Route path="/" exact component={Main}/>
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/profil" component={Profil} />
