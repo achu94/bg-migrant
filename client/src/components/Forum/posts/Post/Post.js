@@ -1,6 +1,6 @@
+import { useState, useEffect, useRef,useContext } from "react";
 import parse from "html-react-parser";
-
-import { useState, useEffect, useRef } from "react";
+import { IsAuthContext } from '../../../../Context/IsAuthContext';
 
 import "./Post.css";
 
@@ -8,6 +8,7 @@ import * as postServices from "../../postServices";
 
 const Post = ({ history, match }) => {
   
+  let userInfo = useContext(IsAuthContext);
   const [postData, setPostData] = useState({
     title: "",
     body: "",
