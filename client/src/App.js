@@ -17,7 +17,7 @@ import Post from "./components/Forum/posts/Post";
 
 import News from "./components/News";
 import Work from "./components/Work";
-import Flat from "./components/Flat";
+import Blog from "./components/Blog";
 import Specpage from "./components/Specpage";
 import Footer from "./components/Footer";
 
@@ -61,7 +61,7 @@ function App() {
               <Route path="/forum" component={Forum} />
               <Route path="/news/:country" component={News} />
               <Route path="/work" component={Work} />
-              <Route path="/flat" component={Flat} />
+              <Route path="/blog" component={Blog} />
               <Route path="/specpage" component={Specpage} />
               <Route component={() => <h1> Error Page!</h1>} />
             </Switch>

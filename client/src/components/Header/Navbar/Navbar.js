@@ -59,7 +59,7 @@ class Navbar extends Component {
                     <li className="listItem"><NavLink activeClassName="listItem_active" to="/forum">Фoruм</NavLink></li>
                     <li className="listItem"><NavLink activeClassName="listItem_active" to="/news/bg">Новини</NavLink></li>
                     <li className="listItem"><NavLink activeClassName="listItem_active" to="/work">Работа</NavLink></li>
-                    <li className="listItem"><NavLink activeClassName="listItem_active" to="/flat">Kвиртира</NavLink></li>
+                    <li className="listItem"><NavLink activeClassName="listItem_active" to="/blog">Блог</NavLink></li>
                     <li className="listItem"><NavLink activeClassName="listItem_active" to="/specpage">Българскo в Германия</NavLink></li>
                 </ul>
             </nav>

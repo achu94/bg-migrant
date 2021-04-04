@@ -8,7 +8,7 @@ const options = [
 ]
 
 
-class Flat extends Component {
+class Blog extends Component {
 
     constructor(props){
         super(props);
@@ -53,9 +53,9 @@ class Flat extends Component {
 
     render(){
         return(
-            <div className="main" >
-            <h1>Demo Form</h1>
-            <form onSubmit={this.onLoginSubmitHandler} >
+            <div className="main comming_soon" >
+            <h1>Очаквайте скоро</h1>
+            {/* <form onSubmit={this.onLoginSubmitHandler} >
                 <label htmlFor="username">Username</label>
                 <input onChange={this.onChangeHandler} type="text" id="username" name="username" value={this.state.username} />
                 <br />
@@ -82,11 +82,11 @@ class Flat extends Component {
                 <input type="submit" value="Send" onClick={this.onLoginSubmitControlled.bind(this)} />
                 <br /><br />
                 <button type="button" onClick={this.onSumitClickHandler}>Click Me</button>
-            </form>
+            </form> */}
         </div>
         );
 }
 
 }
 
-export default Flat;
+export default Blog;
