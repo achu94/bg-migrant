@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const User = require('./User');
 
 const postScheme = new mongoose.Schema({
     title : {
@@ -42,7 +43,7 @@ const postScheme = new mongoose.Schema({
 });
 
 postScheme.post('save', function (post, next) {
-    user.update(
+    User.update(
         { "_id" : this.author},
         {$push: {
             "posts" : post._id
