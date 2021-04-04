@@ -37,7 +37,7 @@ const Profil = ({history}) => {
                             <h2>Questions</h2>
                             <ul>
                                 {userAllInfo.posts.map( post => {
-                                    return <li> <Link to={`posts/${post._id}`}> {post.title} </Link></li>
+                                    return <li key={post._id}> <Link to={`posts/${post._id}`}> {post.title} </Link></li>
                                 })}
                             </ul>
                         </div>
@@ -45,7 +45,7 @@ const Profil = ({history}) => {
                             <h2>Comments</h2>
                             <ul>
                             {userAllInfo.topics.map( topic => {
-                                    return <li>{topic.body}</li>
+                                    return <li key={topic._id} >{topic.body}</li>
                                 })}
                             </ul>
                         </div>
