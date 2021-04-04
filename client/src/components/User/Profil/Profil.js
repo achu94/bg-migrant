@@ -28,13 +28,13 @@ const Profil = ({history}) => {
                 <>
                     <div className="user-info">
                         <span className="user-info-header">{userAllInfo.username}</span> 
-                        <span> ID: {userAllInfo._id}</span>
-                        <span> E-Mail: {userAllInfo.eMail}</span>                
+                        <span> ИД: {userAllInfo._id}</span>
+                        <span> Електронна поща: {userAllInfo.eMail}</span>                
                     </div>
-                    <h1>Activity</h1>
+                    <h1>Дейност</h1>
                     <div className="user-activity">
                         <div className="user-questions">
-                            <h2>Questions</h2>
+                            <h2>Въпроси</h2>
                             <ul>
                                 {userAllInfo.posts.map( post => {
                                     return <li key={post._id}> <Link to={`posts/${post._id}`}> {post.title} </Link></li>
@@ -42,7 +42,7 @@ const Profil = ({history}) => {
                             </ul>
                         </div>
                         <div className="user-comments">
-                            <h2>Comments</h2>
+                            <h2>Коментари</h2>
                             <ul>
                             {userAllInfo.topics.map( topic => {
                                     return <li key={topic._id} >{topic.body}</li>
