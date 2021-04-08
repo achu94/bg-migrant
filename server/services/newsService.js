@@ -1,5 +1,5 @@
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('1457f8135ea24e9685380b6c7eb48ef9');
+const newsapi = new NewsAPI(process.env.NEWS_API_ID);
 
 async function getAll() {
     let news_data = await newsapi.v2.topHeadlines({
