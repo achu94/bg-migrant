@@ -1,0 +1,11 @@
+.login_warning_username, .login_warning_password {
+    margin: 0.3rem;
+    background-color: indianred;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    display: none;    
+}
+
+.register_warning_show {
+    display: inline-block;
+}

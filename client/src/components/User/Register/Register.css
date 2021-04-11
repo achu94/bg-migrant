@@ -1,0 +1,16 @@
+.register_warning_username, .register_warning_password, .register_warning_password_rep, .register_warning_email {
+    margin: 0.3rem;
+    background-color: indianred;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    display: none;
+}
+
+.register_warning_show {
+    display: inline-block;
+}
+
+.disabled {
+    background-color: gray;
+    cursor:not-allowed;
+}
