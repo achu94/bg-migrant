@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "cd client && npm run-script build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild" :"npm run install-client && npm run-script build",
     "start": "node server.js",
-    "build": "cd clinet && npm run-script build",
-    "install-client": "cd clinet && npm install",
-    "heroku-postbuild" :"npm run install-client && npm run-script build"
+    "client" : "cd client && npm start"
   },
   "keywords": [],
   "author": "",
