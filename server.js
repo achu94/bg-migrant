@@ -8,7 +8,7 @@ const {PORT} = require('./config/config') || 5000;
 const routes = require('./routes');
 
 const app = express();
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({credentials: true, origin: 'https://bg-migrant-server.herokuapp.com/'}));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
