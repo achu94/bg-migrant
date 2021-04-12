@@ -9,7 +9,7 @@ export const isAuth = (token) => {
         credentials: 'include'
     };
     
-    return fetch(document.location.origin + 'api/', requestOptions)
+    return fetch('api/', requestOptions)
         .then( res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);

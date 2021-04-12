@@ -12,7 +12,7 @@ class News extends Component {
 
     fetchNews() {
         // Where we're fetching data from
-        fetch(document.location.origin+'/api/news')
+        fetch('/api/news')
             .then(response => response.json())
             // ...then we update the users state
             .then(data =>
