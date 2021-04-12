@@ -2,13 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
+const morgan = require('morgan');
+
 
 const errorHandler = require('./middleware/errorHandler');
 const {PORT} = require('./config/config') || 5000;
 const routes = require('./routes');
 
 const app = express();
-app.use(cors({credentials: true, origin: 'https://bg-migrant-server.herokuapp.com/'}));
+app.use(cors({credentials: true, origin: 'https://bg-migrant-server.herokuapp.com'}));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -19,7 +21,8 @@ app.use(express.urlencoded({
 
 require('./config/mongoose');
 
-app.use(routes);
+app.use(morgan('tiny'));
+app.use('/api', routes);
 app.use(errorHandler);
 
 if(process.env.NODE_ENV == 'production'){

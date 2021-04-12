@@ -6,9 +6,10 @@
   "scripts": {
     "build": "cd client && npm run-script build",
     "install-client": "cd client && npm install",
-    "heroku-postbuild" :"npm run install-client && npm run-script build",
+    "heroku-postbuild": "npm run install-client && npm run-script build",
     "start": "node server.js",
-    "client" : "cd client && npm start"
+    "client": "cd client && npm start",
+    "dev"   : "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "5.11.5",
+    "morgan": "^1.10.0",
     "newsapi": "^2.4.1"
   },
   "devDependencies": {

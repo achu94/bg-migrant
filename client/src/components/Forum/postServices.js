@@ -8,7 +8,7 @@ export const newPost = (postData) => {
         credentials: 'include'
     };
 
-    return fetch(document.location.origin +'/posts/new', requestOptions)
+    return fetch(document.location.origin +'/api/posts/new', requestOptions)
         .then(res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);
@@ -21,7 +21,7 @@ export const getPost = (id) => {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    return fetch(document.location.origin +'/posts/' + id, requestOptions)
+    return fetch(document.location.origin +'/api/posts/' + id, requestOptions)
         .then(res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);
@@ -36,7 +36,7 @@ export const getAll = () => {
         credentials: 'include'
     };
 
-    return fetch(document.location.origin +'/posts', requestOptions)
+    return fetch(document.location.origin +'/api/posts', requestOptions)
         .then(res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);
@@ -52,7 +52,7 @@ export const newTopic = (body, postId) => {
         credentials: 'include'
     };
 
-    return fetch(`${document.location.origin}/posts/${postId}/newtopic`, requestOptions)
+    return fetch(`${document.location.origin}/api/posts/${postId}/newtopic`, requestOptions)
         .then(res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);

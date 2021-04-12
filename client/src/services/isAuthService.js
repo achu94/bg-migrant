@@ -8,8 +8,8 @@ export const isAuth = (token) => {
         mode: 'cors',
         credentials: 'include'
     };
-
-    return fetch(document.location.origin, requestOptions)
+    
+    return fetch(document.location.origin + 'api/', requestOptions)
         .then( res => res.json())
         .catch(function(error) {
             console.log('Looks like there was a problem: \n', error);
