@@ -1,25 +1,22 @@
 ## BG-Migrant
-# Социална мрежа за Имигранти от България в Германия.
-Потребителите на сайта могат да публикуват Постове, Дискутират и да си помагат с коментари. Сайта вклчва и топ новините от България.
+# Social network for Immigrants from Bulgaria in Germany.
+Users of the site can post, discuss and help with comments. The site also includes the top news from Bulgaria.
 
-# Този проект има свой собствен back-end с NodeJS и front-end с ReactJS.
+# This project has its own back-end with NodeJS and front-end with ReactJS.
 # - Back-End:
-- ExpressJS: за сървъра.
-- bcrypt: е използван за генериране на паролен-хеш.
-- body-parser: е използван за парсване входяща информация от Front-End.
-- cookie-parser: е използван за парсване на Cookies.
-- cors: е използван за ръкостискане на сървъра с клиентa.
-- jsonwebtoken: е използван за генериране на хеш.
-- newsapi: беше използван за новините.
+- ExpressJS: for the server.
+- bcrypt: is used to generate a password hash.
+- body-parser: is used to parse input information from the Front-End.
+- cookie-parser: is used to parse Cookies.
+- cors: is used to shake hands server with the client.
+- jsonwebtoken: is used to generate a hash.
+- newsapi: is used for the news.
 
 # - Frond-End:
-- suneditor-react: е използван за функциите на постовете.
-- html-react-parser: беше използван за парсване на чист HTML към JSX.
+- suneditor-react: is used for the post functions.
+- html-react-parser: is used to parse pure HTML to JSX.
 
-# - MongoDB и нейните безплатни клъстери бяха използвани за съхранение на данни.
-# - Обработката на грешки и валидирането на данни бяха приложени както на FE, така и BE. 
-
-
-Проектa който е направен за Cофтуни ще бъде завършен и публикуван.
+# - MongoDB and its free clusters were used for data storage.
+# - Error processing and data validation were applied to both FE and BE. 
 
 **Aygyun Yakub**
